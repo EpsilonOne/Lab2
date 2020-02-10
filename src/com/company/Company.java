@@ -6,7 +6,7 @@ public class Company {
     private String name;
     private String address;
 //Testing Hello Justin
-//Testing Hello Shaney poo
+//Testing Hello
 
     public void hireNewEmployee(Employee e){
 
