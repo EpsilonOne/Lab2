@@ -3,16 +3,23 @@ package com.company;
 import java.util.List;
 
 public class Manager extends Employee {
+    private List<Worker> workers;
+    private List<Project> projects;
+    private Manager myDelegate;
+    private List<Manager> myColleagues;
+
+    public Manager(String name, int phone) {
+        super(name, phone);
+    }
     //Attributes
 
     //Methods
-    public void addWorkerToManager(){
+    public void addWorkerToManage(){
 
     }
 
     public List<Worker> getWorkers(){
-
-        return null;
+        return workers;
     }
 
     public void assignTask(Task t, Worker w){
@@ -33,7 +40,7 @@ public class Manager extends Employee {
     }
 
     public void addColleague(Manager c){
-
+        myColleagues.add(c);
     }
 
     public void updateSalary(Employee e){

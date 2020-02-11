@@ -7,6 +7,10 @@ public class Employee extends People{
     private int performanceScale;
     private int salary;
 
+    public Employee(String name, long phone) {
+        super(name, phone);
+    }
+
     //Methods
     public void receiveNews(String n){
 
