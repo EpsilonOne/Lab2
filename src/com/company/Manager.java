@@ -1,28 +1,32 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Manager extends Employee {
-    private List<Worker> workers;
-    private List<Project> projects;
+    private ArrayList<Worker> workers = new ArrayList<Worker>();
+    private List<Project> projects = new ArrayList<Project>();
     private Manager myDelegate;
-    private List<Manager> myColleagues;
+    private List<Manager> myColleagues = new ArrayList<Manager>();
 
-    public Manager(String name, int phone) {
-        super(name, phone);
+    public Manager(String name, long pNum) {
+        super(name, pNum);
+        setSalary(75000);
+
     }
     //Attributes
 
     //Methods
-    public void addWorkerToManage(){
-
+    public void addWorkerToManage(Worker w){
+        workers.add(w);
     }
 
-    public List<Worker> getWorkers(){
+    public ArrayList<Worker> getWorkers(){
         return workers;
     }
 
     public void assignTask(Task t, Worker w){
+        w.addTaskToWork(t);
 
     }
 
@@ -35,7 +39,9 @@ public class Manager extends Employee {
 
     }
 
-    protected void setDelegate(){
+    protected void setDelegate(Manager m){
+        myDelegate = m;
+
 
     }
 
@@ -43,7 +49,9 @@ public class Manager extends Employee {
         myColleagues.add(c);
     }
 
-    public void updateSalary(Employee e){
+    public void updateSalary(Worker w, int r){
+        w.setSalary(w.getSalary() + r);
+
 
     }
 }

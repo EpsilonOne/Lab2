@@ -1,16 +1,25 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Worker extends Employee {
-    public Worker(String name, long phone) {
-        super(name, phone);
+    private Worker myDelegate;
+    private List<Worker> myColleagues = new ArrayList<Worker>();
+    private List<Task> tasks = new ArrayList<Task>();
+    private Manager manager;
+    public Worker(String name, long pNum) {
+        super(name, pNum);
+        setSalary(50000);
     }
-    //Attributes
 
     //Methods
     public void addTaskToWork(Task t){
+        tasks.add(t);
+    }
 
+    public List<Task> getTasks() {
+        return tasks;
     }
 
     public void performTasks(){
@@ -21,15 +30,13 @@ public class Worker extends Employee {
 
     }
 
-    public void getAssignedTasks(){
 
-    }
-
-    protected void setDelegate(){
+    protected void setDelegate(Worker w) {
+        myDelegate = w;
 
     }
 
     public void addColleague(Worker c){
-
+        myColleagues.add(c);
     }
 }
