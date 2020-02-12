@@ -1,6 +1,7 @@
 package com.company;
 
 public class Task {
+
     //Attributes
     private String taskID;
     private String description;
@@ -12,4 +13,20 @@ public class Task {
         this.description = description;
         this.complete = false;
     }
+    public String getTaskID() {
+        return taskID;
+    }
+
+    public void setTaskID(String taskID) {
+        this.taskID = taskID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

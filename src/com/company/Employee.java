@@ -41,13 +41,6 @@ public class Employee extends People{
     }
 
     public void isOnVacation(){
-
-    }
-
-
-    public void setOnVacation() {
         isOnVacation = true;
     }
-
-
 }

@@ -17,41 +17,50 @@ public class Manager extends Employee {
     //Attributes
 
     //Methods
-    public void addWorkerToManage(Worker w){
+    public void addWorkerToManage(Worker w) {
         workers.add(w);
     }
 
-    public ArrayList<Worker> getWorkers(){
+    public ArrayList<Worker> getWorkers() {
         return workers;
     }
 
-    public void assignTask(Task t, Worker w){
+    public void assignTask(Task t, Worker w) {
         w.addTaskToWork(t);
 
     }
 
-    public List<Task> collectCompletedTasks(){
+    public List<Task> collectCompletedTasks() {
 
         return null;
     }
 
-    public void evaluateEmployeesPerformance(){
+    public void evaluateEmployeesPerformance() {
 
     }
 
-    protected void setDelegate(Manager m){
+    protected void setDelegate(Manager m) {
         myDelegate = m;
-
-
+        for (Worker worker : workers) {
+            m.addWorkerToManage(worker);
+        }
     }
 
-    public void addColleague(Manager c){
+    public void printWorkers() {
+        for (Worker worker : workers) {
+            System.out.println(worker.getName());
+        }
+    }
+
+
+    public void addColleague(Manager c) {
         myColleagues.add(c);
     }
 
-    public void updateSalary(Worker w, int r){
+    public void updateSalary(Worker w, int r) {
         w.setSalary(w.getSalary() + r);
 
 
     }
 }
+

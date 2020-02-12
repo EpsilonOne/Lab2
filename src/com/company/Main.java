@@ -74,11 +74,24 @@ public class Main {
         Task t1 = new Task("t1", "wipe my butt");
         Task t2 = new Task("t2", "Wsh your hands");
         mary.assignTask(t1, greg);
+        greg.printTasks();
         mary.assignTask(t2, amy);
+        amy.setDelegate(greg);
+        greg.printTasks();
+        System.out.println("Mary's workers");
+        mary.printWorkers();
+        System.out.println("John's workers");
+        john.printWorkers();
+        mary.setDelegate(john);
+        System.out.println("John's workers after mary delegates that lazy bitch");
+        john.printWorkers();
+        System.out.println("Greg's Salary: " +greg.getSalary());
 
-        System.out.println(jim.getSalary());
-        john.updateSalary(jim, 1000);
-        System.out.println(jim.getSalary());
+        john.updateSalary(greg, 1000);
+
+        System.out.println("Greg's Salary: " +greg.getSalary());
+
+
 
         //company.printEmployees();
 
