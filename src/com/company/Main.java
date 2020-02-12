@@ -1,17 +1,16 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Employee> employeeList = new ArrayList<Employee>();
+
+        //Create Owner and company, add company to owner
         Owner craig = new Owner("Craig ", 8589006141L);
-        Company company = new Company("ABCCO", "123 Main St", craig, employeeList);
+        Company company = new Company("ABCCO", "123 Main St", craig);
         craig.addCompany(company);
 
-        //add and hire Employees
+
+        //Create and hire Employees
         Manager john = new Manager("John", 2345678901L);
         company.hireNewEmployee(john);
         Manager mary = new Manager("Mary", 2345678903L);
@@ -26,6 +25,9 @@ public class Main {
         company.hireNewEmployee(jim);
         Worker greg = new Worker("Greg", 2345678906L);
         company.hireNewEmployee(greg);
+
+        //Print out company information
+        System.out.println(company.toString());
 
         //add johns workers and colleague
         john.addWorkerToManage(jack);
@@ -68,32 +70,49 @@ public class Main {
         greg.addColleague(amy);
         greg.addColleague(jim);
 
-        craig.announceNews("Good Job!");
-        System.out.println(jim.getNews());
+        //Owner make an announcement
+        String n = "Good Job!";
+        System.out.println("Owner Announcement sent");
+        craig.announceNews(n);
 
-        Task t1 = new Task("t1", "wipe my butt");
-        Task t2 = new Task("t2", "Wsh your hands");
+        //print out employees received news
+        System.out.println("Employees received news: " + jim.getNews());
+
+        //create and assign tasks
+        Task t1 = new Task("t1", "Make Coffee");
+        Task t2 = new Task("t2", "Bring Shane the coffee");
+        System.out.println("Mary assigns task t1 to Greg, and task t2 to Amy");
         mary.assignTask(t1, greg);
-        greg.printTasks();
         mary.assignTask(t2, amy);
-        amy.setDelegate(greg);
+
+        //print out greg and amy's tasks then greg's again after amy delegates
+        System.out.println("Greg's Tasks: ");
         greg.printTasks();
+        System.out.println("Amy's Tasks: ");
+        amy.printTasks();
+        amy.setDelegate(greg);
+        System.out.println("Greg's Tasks after Amy delegates her task to Greg: ");
+        greg.printTasks();
+
+        //Greg performs tasks
+        System.out.println("Greg performs tasks: ");
+        greg.performTasks();
+        greg.printTasksDone();
+
+        //Print out workers for both Mary and John
         System.out.println("Mary's workers");
         mary.printWorkers();
         System.out.println("John's workers");
         john.printWorkers();
+
+        //Delegate Mary's workers to John and print John's workers after
         mary.setDelegate(john);
-        System.out.println("John's workers after mary delegates that lazy bitch");
+        System.out.println("John's workers after Mary delegates to John");
         john.printWorkers();
-        System.out.println("Greg's Salary: " +greg.getSalary());
 
+        //print Greg's salary before and after John Updates it.
+        System.out.println("Greg's current salary: " + greg.getSalary());
         john.updateSalary(greg, 1000);
-
-        System.out.println("Greg's Salary: " +greg.getSalary());
-
-
-
-        //company.printEmployees();
-
+        System.out.println("Greg's salary after John updates: " + greg.getSalary());
     }
 }

@@ -1,19 +1,24 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Owner extends People {
-    private List<Manager> managers;
-    private Company company;
+
+    /*****Attributes*****/
+    private List<Manager> managers; //list of managers
+    private Company company; //Company of Owner
+
+    /*****Constructor*****/
     public Owner(String name, long pNum) {
         super(name, pNum);
     }
 
-    //Methods
+    /*****Methods*****/
+    //sets company
     public void addCompany(Company c){
         this.company = c;
     }
+
     public void startProject(){
 
     }
@@ -30,6 +35,7 @@ public class Owner extends People {
 
     }
 
+    //sends news message to company class method
     public void announceNews(String news){
         company.sendAnnouncement(news);
     }
